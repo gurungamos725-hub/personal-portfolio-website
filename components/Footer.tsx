@@ -15,18 +15,17 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-ink py-14">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1.2fr_0.7fr_0.9fr_1fr] lg:px-8">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="grid h-12 w-24 place-items-center overflow-hidden rounded-lg bg-white p-1.5">
+          <div className="flex flex-col items-start gap-2">
+            <span className="grid h-12 w-44 place-items-center overflow-hidden">
               <img
-                src="/images/ag-logo.jpg"
+                src="/images/ag-digital-logo.png"
                 alt="AG Digital logo"
                 className="h-full w-full object-contain"
               />
             </span>
-            <div>
-              <p className="font-semibold text-white">AG Digital</p>
-              <p className="text-xs text-slate-400">AI Marketing Expert</p>
-            </div>
+            <span className="pl-1 text-xs font-semibold uppercase tracking-[0.22em] text-cyan">
+              AI Marketing
+            </span>
           </div>
           <p className="mt-5 max-w-sm text-sm leading-6 text-slate-400">
             AI-powered marketing strategy, consulting, automation, and digital

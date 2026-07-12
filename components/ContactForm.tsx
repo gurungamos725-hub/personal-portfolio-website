@@ -13,33 +13,32 @@ const serviceOptions = [
 ];
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
     const form = new FormData(event.currentTarget);
     const required = ["name", "email", "message"];
     const missing = required.some((field) => !String(form.get(field) || "").trim());
 
     if (missing) {
+      event.preventDefault();
       setError("Please complete your name, email, and message.");
       return;
     }
 
     setError("");
-    setSubmitted(true);
-    event.currentTarget.reset();
   }
 
   return (
-    <form className="glass rounded-2xl p-6 sm:p-8" onSubmit={handleSubmit}>
-      {submitted ? (
-        <div className="mb-6 rounded-lg border border-mint/30 bg-mint/10 p-4 text-sm text-mint">
-          Thank you. Your message is ready for review, and the form handler can
-          be connected to email delivery when hosting is configured.
-        </div>
-      ) : null}
+    <form
+      className="glass rounded-2xl p-6 sm:p-8"
+      action="https://formsubmit.co/info@amosg.com.np"
+      method="POST"
+      onSubmit={handleSubmit}
+    >
+      <input type="hidden" name="_subject" value="New AG Digital consultation request" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
       {error ? (
         <div className="mb-6 rounded-lg border border-red-400/30 bg-red-400/10 p-4 text-sm text-red-200">
           {error}
